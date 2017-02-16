@@ -57,4 +57,4 @@ if ($page) {
 };
 }
 
- include 'blocks/content.php'; ?>
+ include 'blocks/content.php';include 'blocks/sidebars/indexsb.php'; ?>

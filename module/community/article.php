@@ -32,8 +32,15 @@ echo "<br><div class='article' >".$post['text'];
 echo '<hr style="height:1px;">Теги:';
 
 $Tags=explode(",",$post['tags']);
-foreach ($Tags as $tag) {
-    echo '<a href="/searching/'.$tag.'">'.$tag.'</a>,';
+$z=0;
+$tagCount=count($Tags);
+while ($z<$tagCount) {
+  if ($z != ($tagCount-1)) {
+      echo '<a href="/searching/'.$Tags[$z].'">'.$Tags[$z].'</a>,';
+    } else {
+      echo '<a href="/searching/'.$Tags[$z].'">'.$Tags[$z].'</a>';
+}
+$z++;
 };
 
 echo '</div>';
