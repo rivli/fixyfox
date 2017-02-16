@@ -14,7 +14,7 @@ $userFollows = explode("/",$user['follow']);
 <a href="/<?php echo $_SESSION['id'] ?>/add" style="float:right;display:inline-block;"><div class="abutton">
   <span class="insideabutton">Add</span>
 </div></a> <?php }; ?>
-<hr>
+
 
 
 <?php

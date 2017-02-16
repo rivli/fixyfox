@@ -12,7 +12,7 @@ if ($page) {
   $i = $postsNumber[0];
   while ($i >= 1) {
   $post = mysqli_fetch_array(mysqli_query($CONNECT, "SELECT * FROM `uarticles` WHERE `id` = '".$i."'"));
-
+  $post['tags']="0".$post['tags'];//Даем первую цифру 0 как нулевой элемент в строке,иначе первый встречающийся элемент в строке будет false
   if (strripos($post['tags'],$page)) {
 
   if (strlen($post['name']) > 77) {
@@ -39,6 +39,7 @@ if ($page) {
   $i = $CommpostsNumber[0];
   while ($i >= 1) {
   $post = mysqli_fetch_array(mysqli_query($COMMUNITYBD, "SELECT * FROM `".$community['url']."Articles` WHERE `id` = '".$i."'"));
+  $post['tags']="0".$post['tags'];//Даем первую цифру 0 как нулевой элемент в строке,иначе первый встречающийся элемент в строке будет false
 
   if (strripos($post['tags'],$page)) {
 
