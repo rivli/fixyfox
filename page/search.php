@@ -10,9 +10,7 @@
 
 
 if ($page) {
-
-
-  $search=explode(' ',$page);
+  $search=explode(' ',$page);//Получаем слова из поиска
   $s=count($search);
 
   //Поиск в таблицах юзеров
@@ -100,7 +98,7 @@ $vc = count($vivod);
 
 $x=0;
 while ($x<$vc) {
-    
+
     if ($vivod[$x][1] != 'uarticles') {
         $post = mysqli_fetch_array(mysqli_query($COMMUNITYBD, "SELECT * FROM `".$vivod[$x][1]."` WHERE `id` = '".$vivod[$x][0]."'"));
         $community = substr($vivod[$x][1], 0, -8);
@@ -114,6 +112,9 @@ while ($x<$vc) {
   $x++;
 }
 
+if (!$vc) {
+  echo 'Статей "'.$page.'" не найдено.';
+}
 
 }
 
