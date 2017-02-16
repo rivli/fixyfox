@@ -87,6 +87,7 @@ if ($module == false ) {include "page/index.php";}
           }
         }
         else if ($module=='searching') {include 'page/searching.php';}
+        else if ($module=='search') {include 'page/search.php';}
         else if ($page == 'query' and file_exists('module/'.$module.'/'.$page.'/'.$ident1.'.php')) {include 'module/'.$module.'/'.$page.'/'.$ident1.'.php';}
         else if ($ident1 == 'query' and file_exists('module/'.$module.'/'.$page.'/'.$ident1.'/'.$ident2.'.php')) {include 'module/'.$module.'/'.$page.'/'.$ident1.'/'.$ident2.'.php';}
         else if ($module=="communities") {

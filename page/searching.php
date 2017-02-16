@@ -31,9 +31,9 @@ if ($page) {
 
   //Поиск в таблицах сообществ
   $commNumber = mysqli_fetch_array(mysqli_query($CONNECT , "SELECT COUNT(*) FROM `communities`"));
-  $i = $commNumber[0];
-  while ($i >= 1) {
-  $community = mysqli_fetch_array(mysqli_query($CONNECT, "SELECT * FROM `communities` WHERE `id` = '".$i."'"));
+  $j = $commNumber[0];
+  while ($j >= 1) {
+  $community = mysqli_fetch_array(mysqli_query($CONNECT, "SELECT * FROM `communities` WHERE `id` = '".$j."'"));
 
   $CommpostsNumber = mysqli_fetch_array(mysqli_query($COMMUNITYBD , "SELECT COUNT(*) FROM `".$community['url']."Articles`"));
   $i = $CommpostsNumber[0];
@@ -52,6 +52,7 @@ if ($page) {
   echo "<span class='date'>".$post['date']."</span><hr style=\"height:1px;\" >";}
   $i--;
   };
+  $j--;
 };
 }
 

@@ -5,9 +5,10 @@ $user = mysqli_fetch_array($result);
 $userFollows = explode("/",$user['follow']);
 ?>
 
-<form class="" action="#" method="post" style="display:inline-block;">
-  <input type="text" name="search"  placeholder="Search">
-  <button type="button" name="find">Find</button>
+
+<form class="" action="/p/query-search" method="post" style="display:inline-block;width:60%;">
+  <input type="text" name="tags" placeholder="Найти" style="width:80%;" value="<?php echo $page; ?>">
+  <input type="submit" name="enter" value="Найти">
 </form>
 <?php if ($_SESSION['status'] == 'login') { ?>
 <a href="/<?php echo $_SESSION['id'] ?>/add" style="float:right;display:inline-block;"><div class="abutton">
