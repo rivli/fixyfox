@@ -5,6 +5,7 @@ if ($_SESSION['status'] != 'login') {MessageSend(1,"Вы не можете пр�
 $_POST['url'] = FormChars($_POST['url']);
 //Здесь проверяем занят ли УРЛ или нет
   $projectsarray = mysqli_fetch_array(mysqli_query($CONNECT, "SELECT * FROM `arrays` WHERE `name` = 'communities'")); //обновляем собеседников
+  $pagesArray = mysqli_fetch_array(mysqli_query($CONNECT, "SELECT * FROM `arrays` WHERE `name` = 'pages'")); //обновляем собеседников
   if (!$projectsarray['array']) {
       mysqli_query($CONNECT,"UPDATE `arrays` SET `array`=CONCAT(`array`,'".$_POST['url']."') WHERE `name` = 'communities'");
   } else {
@@ -15,7 +16,10 @@ $_POST['url'] = FormChars($_POST['url']);
       MessageSend(1,"Извените,но URL \"".$_POST['url']."\" уже занят","/".$_SESSION['id']);
     };};
 
-
+    $pageArray = explode("/",$pagesArray['array']);//получаем УРЛи добавляем новый если нет его в списке
+    if (in_array($_POST['url'],$pageArray)) {
+      MessageSend(1,"Извените,но URL \"".$_POST['url']."\" используется системой и его невозможно использовать","/".$_SESSION['id']);
+    };
 
 $_POST['name'] = FormChars($_POST['name']);
 $_POST['description'] = nl2br(trim($_POST['description']));

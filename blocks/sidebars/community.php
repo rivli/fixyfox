@@ -14,6 +14,9 @@ $AmIFollower = mysqli_fetch_array(mysqli_query($COMMUNITYBD, "SELECT * FROM `".$
   <div class="sb_block" style="padding:3px;padding-bottom:0;">
     <img src="<?php echo $logo ?>" width="100%"  class="popupimage" alt="<?php echo $community['name']?>"  title="<?php echo $CommunityLogo['description'] ?>" >
   </div>
+  <a href="/<?php echo $module ?>/photo" style="text-decoration: none;" ><div class="AddToFollowers">
+    <span class="">Фотографии</span>
+  </div></a>
 <?php if (!$AmIFollower) { ?>
       <a href="/<?php echo $module ?>/query/follow" style="text-decoration: none;" ><div class="AddToFollowers">
         <span class="">Подписаться</span>
